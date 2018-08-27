@@ -4,6 +4,10 @@ import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Predicate;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 /***
  *  Created with IntelliJ IDEA.
@@ -25,7 +29,15 @@ public class LambdaTest {
     }
 
     private int toIntAndAddOne(String code) {
-         return Integer.valueOf(code)+ 1;
+        return Integer.valueOf(code) + 1;
     }
+
+    @Test
+    public void testPredicate() {
+        Predicate<String> predicate = (name) -> name.length() > 3;
+        assertTrue(predicate.test("Rayest"));
+        assertFalse(predicate.negate().test("Rayest"));
+    }
+
 
 }

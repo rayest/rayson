@@ -1,4 +1,4 @@
-package org.rayson.comparator;
+package org.rayson.lambda.comparator;
 
 import org.junit.Test;
 
