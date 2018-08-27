@@ -1,7 +1,5 @@
 package org.rayson.lambda;
 
-import java.util.Optional;
-
 /***
  *  Created with IntelliJ IDEA.
  *  User:  lirui
@@ -9,6 +7,6 @@ import java.util.Optional;
  *  Time: 下午5:33
  *  Description:
  **/
-public interface LambdaInterface {
-    Optional<Integer> add();
+public interface Calculator {
+    double sqrt();
 }
