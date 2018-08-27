@@ -5,8 +5,8 @@ import org.rayson.BaseTest;
 
 import javax.annotation.Resource;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
 /***
  *  Created with IntelliJ IDEA.
@@ -31,8 +31,7 @@ public class RedisTest extends BaseTest {
     public void testNameIsNotNull() {
         String key = "test:redis:name:lee";
         String value = "lee";
-        redisDemo.setIntoCache(key, value, 10);
-        String name = redisDemo.getFromCache(key);
-        assertEquals(value, name);
+        boolean isCached = redisDemo.setIntoCache(key, value, 10);
+        assertTrue(isCached);
     }
 }
