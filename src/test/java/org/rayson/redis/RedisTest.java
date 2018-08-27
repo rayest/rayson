@@ -5,6 +5,7 @@ import org.rayson.BaseTest;
 
 import javax.annotation.Resource;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
 /***
@@ -24,5 +25,14 @@ public class RedisTest extends BaseTest {
         String key = "test:redis:name:lee";
         String value = redisDemo.getFromCache(key);
         assertNull(value);
+    }
+
+    @Test
+    public void testNameIsNotNull() {
+        String key = "test:redis:name:lee";
+        String value = "lee";
+        redisDemo.setIntoCache(key, value, 10);
+        String name = redisDemo.getFromCache(key);
+        assertEquals(value, name);
     }
 }
