@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/rayson.iml" filepath="$PROJECT_DIR$/rayson.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/rayson_main.iml" filepath="$PROJECT_DIR$/.idea/modules/rayson_main.iml" group="rayson" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/rayson_test.iml" filepath="$PROJECT_DIR$/.idea/modules/rayson_test.iml" group="rayson" />
+    </modules>
+  </component>
+</project>
