@@ -11,4 +11,9 @@ spring:
     host: 127.0.0.1
     port: 6379
     password: redis123
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    password: guest
+    username: guest
 
