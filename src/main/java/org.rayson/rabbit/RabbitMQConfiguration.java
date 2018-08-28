@@ -4,9 +4,6 @@ import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
 import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.core.TopicExchange;
-import org.springframework.amqp.rabbit.connection.ConnectionFactory;
-import org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer;
-import org.springframework.amqp.rabbit.listener.adapter.MessageListenerAdapter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -24,7 +21,7 @@ public class RabbitMQConfiguration {
     public static final String EXCHANGE = "test_rabbit_user_exchange";
 
     @Bean
-    Queue queue() {
+    Queue productQueue() {
         return new Queue(TEST_RABBIT_USER_QUEUE, false);
     }
 
@@ -39,18 +36,7 @@ public class RabbitMQConfiguration {
     }
 
     @Bean
-    SimpleMessageListenerContainer container(ConnectionFactory connectionFactory,
-                                             MessageListenerAdapter listenerAdapter) {
-        SimpleMessageListenerContainer container = new SimpleMessageListenerContainer();
-        container.setConnectionFactory(connectionFactory);
-        container.setQueueNames(TEST_RABBIT_USER_QUEUE);
-        container.setMessageListener(listenerAdapter);
-        return container;
+    ProductListener productListener() {
+        return new ProductListener();
     }
-
-    @Bean
-    MessageListenerAdapter listenerAdapter(ProductMessageListener receiver) {
-        return new MessageListenerAdapter(receiver, "receiveMessage");
-    }
-
 }

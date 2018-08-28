@@ -2,11 +2,15 @@ package org.rayson.rabbit;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.amqp.rabbit.annotation.RabbitHandler;
+import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import java.util.Map;
+
+import static org.rayson.rabbit.RabbitMQConfiguration.TEST_RABBIT_USER_QUEUE;
 
 /***
  *  Created with IntelliJ IDEA.
@@ -16,14 +20,16 @@ import java.util.Map;
  *  Description:
  **/
 @Component
-public class ProductMessageListener {
+@RabbitListener(queues = TEST_RABBIT_USER_QUEUE)
+public class ProductListener {
 
     @Resource
     private ProductRepository productRepository;
 
-    private static final Logger logger = LogManager.getLogger(ProductMessageListener.class);
+    private static final Logger logger = LogManager.getLogger(ProductListener.class);
 
-    public void receiveMessage(Map<String, ProductDTO> map) {
+    @RabbitHandler
+    public void receive(Map<String, ProductDTO> map) {
         logger.info("Message processing...");
         Product product = new Product();
         BeanUtils.copyProperties(map.get("productDTO"), product);
