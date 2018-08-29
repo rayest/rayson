@@ -7,6 +7,7 @@ import java.io.*;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Future;
 
 /***
@@ -21,9 +22,11 @@ public class WriterTask implements Runnable {
     private Logger logger = LoggerFactory.getLogger(WriterTask.class);
 
     private BlockingQueue<Future<Map<String, FileInputStream>>> queue;
+    private CountDownLatch latch;
 
-    public WriterTask(BlockingQueue<Future<Map<String, FileInputStream>>> queue) {
+    public WriterTask(BlockingQueue<Future<Map<String, FileInputStream>>> queue, CountDownLatch latch) {
         this.queue = queue;
+        this.latch = latch;
     }
 
     @Override
@@ -33,19 +36,21 @@ public class WriterTask implements Runnable {
         try {
             Future<Map<String, FileInputStream>> future = queue.take();
             Map<String, FileInputStream> map = future.get();
-
             Set<String> set = map.keySet();
             for (String fileName : set) {
+                logger.info("New file name: {}", fileName);
                 String filePath = "src/main/resources/file/target/" + fileName;
                 bufferedWriter = new BufferedWriter(new FileWriter(new File(filePath)));
 
                 String data;
                 FileInputStream fileInputStream = map.get(fileName);
                 bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream, "utf-8"));
-                logger.info("线程：{} 开始写文件..." + Thread.currentThread().getName());
+                logger.info("线程：{} 开始写文件...", Thread.currentThread().getName());
                 while ((data = bufferedReader.readLine()) != null) {
                     bufferedWriter.write(data + "\r");
                 }
+                logger.info("线程：{} 写文件完成...", Thread.currentThread().getName());
+                latch.countDown();
             }
         } catch (Exception e) {
             e.printStackTrace();

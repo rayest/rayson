@@ -18,27 +18,23 @@ import java.util.concurrent.*;
  *  Time: 下午5:55
  *  Description:
  **/
-public class CallableDemo3 {
+public class FileHandler {
 
-    public final static Logger logger = LoggerFactory.getLogger(CallableDemo3.class);
+    private final static Logger logger = LoggerFactory.getLogger(FileHandler.class);
 
-    public static void main(String[] args) {
+    public void doTask() {
         File f = new File("src/main/resources/file/source");
         File[] filePaths = f.listFiles();
         final List<File> filePathsList = new ArrayList<>(Arrays.asList(filePaths));
-        logger.info("file size: {}", filePathsList.size());
-
-        CountDownLatch latch = new CountDownLatch(filePathsList.size());
-        ExecutorService pool = Executors.newFixedThreadPool(10);
-
-
+        CountDownLatch latch = new CountDownLatch(8);
+        ExecutorService pool = Executors.newFixedThreadPool(8);
         BlockingQueue<Future<Map<String, FileInputStream>>> queue = new ArrayBlockingQueue<>(100);
 
+        logger.info("分配子线程处理文件");
         for (File file : filePathsList) {
             Future<Map<String, FileInputStream>> future = pool.submit(new ReaderTask(latch, file));
             queue.add(future);
-
-            pool.execute(new WriterTask(queue));
+            pool.execute(new WriterTask(queue, latch));
         }
 
         try {
@@ -46,7 +42,8 @@ public class CallableDemo3 {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
+        logger.info("子线程处理完毕...");
+        logger.info("main 线程继续处理...");
         pool.shutdownNow();
     }
 

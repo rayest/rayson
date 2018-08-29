@@ -1,5 +1,8 @@
 package org.rayson.file;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.HashMap;
@@ -17,6 +20,7 @@ import java.util.concurrent.CountDownLatch;
  **/
 
 public class ReaderTask implements Callable<Map<String, FileInputStream>> {
+    private Logger logger = LoggerFactory.getLogger(ReaderTask.class);
 
     private CountDownLatch latch;
     private File file;
@@ -28,11 +32,14 @@ public class ReaderTask implements Callable<Map<String, FileInputStream>> {
 
     @Override
     public Map<String, FileInputStream> call() throws Exception {
+        logger.info("线程: {} 开始读取文件", Thread.currentThread().getName());
         FileInputStream fis = new FileInputStream(file);
         Map<String, FileInputStream> fileMap = new HashMap<>();
         fileMap.put(file.getName(), fis);
         doWork();
+        logger.info("线程: {} 读取文件完成", Thread.currentThread().getName());
         latch.countDown();
+        logger.info("latch left: {}", latch.getCount());
         return fileMap;
     }
 
