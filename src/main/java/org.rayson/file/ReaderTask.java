@@ -7,7 +7,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Random;
 import java.util.concurrent.Callable;
 import java.util.concurrent.CountDownLatch;
 
@@ -36,21 +35,11 @@ public class ReaderTask implements Callable<Map<String, FileInputStream>> {
         FileInputStream fis = new FileInputStream(file);
         Map<String, FileInputStream> fileMap = new HashMap<>();
         fileMap.put(file.getName(), fis);
-        doWork();
         logger.info("线程: {} 读取文件完成", Thread.currentThread().getName());
         latch.countDown();
-        logger.info("latch left: {}", latch.getCount());
         return fileMap;
     }
 
-    private void doWork() {
-        Random rand = new Random();
-        int time = rand.nextInt(10) * 1000;
-        try {
-            Thread.sleep(time);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
+
 }
 

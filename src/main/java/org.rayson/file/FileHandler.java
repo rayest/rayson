@@ -42,6 +42,7 @@ public class FileHandler {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        logger.info("latch: {}", latch.getCount());
         logger.info("子线程处理完毕...");
         logger.info("main 线程继续处理...");
         pool.shutdownNow();
