@@ -20,7 +20,7 @@ import static org.junit.Assert.assertEquals;
  *  Time: 下午3:46
  *  Description:
  **/
-public class OptionalTest {
+public class StreamTest {
     private final int initValue = 5;
 
     @Test
