@@ -39,8 +39,8 @@ public class StreamTest {
 
     @Test
     public void testForEach() {
-        Demo demoRay = new Demo(UUID.randomUUID().toString());
-        Demo demoRayest = new Demo(UUID.randomUUID().toString());
+        Demo demoRay = Demo.builder().withId(UUID.randomUUID().toString()).build();
+        Demo demoRayest = Demo.builder().withId(UUID.randomUUID().toString()).build();
         List<Demo> demoList = Arrays.asList(demoRay, demoRayest);
 
         assertThat(demoList.get(0).getId(), containsString("-"));
