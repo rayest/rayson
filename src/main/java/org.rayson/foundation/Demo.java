@@ -13,9 +13,19 @@ import lombok.Data;
 public class Demo {
     private String id;
     private String name;
+    private int age;
+
+    public Demo(String id) {
+        this.id = id;
+    }
 
     public Demo(String id, String name) {
         this.id = id;
         this.name = name;
+    }
+
+    public Demo(String id, int age) {
+        this.id = id;
+        this.age = age;
     }
 }

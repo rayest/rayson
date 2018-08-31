@@ -39,8 +39,8 @@ public class OptionalTest {
 
     @Test
     public void testForEach() {
-        Demo demoRay = new Demo(UUID.randomUUID().toString(), "ray");
-        Demo demoRayest = new Demo(UUID.randomUUID().toString(), "rayest");
+        Demo demoRay = new Demo(UUID.randomUUID().toString());
+        Demo demoRayest = new Demo(UUID.randomUUID().toString());
         List<Demo> demoList = Arrays.asList(demoRay, demoRayest);
 
         assertThat(demoList.get(0).getId(), containsString("-"));
@@ -61,6 +61,14 @@ public class OptionalTest {
         List<String> strings = Arrays.asList("abc", "", "bc", "efg", "abcd", "", "jkl");
         List<String> filtered = strings.stream().filter(string -> !string.isEmpty()).collect(Collectors.toList());
         assertEquals(5, filtered.size());
+    }
+
+    @Test
+    public void testMap() {
+        List<String> origin = Arrays.asList("abc", "", "bc", "efg", "abcd", "", "jkl");
+        List<String> upper = origin.stream().map(String::toUpperCase).collect(Collectors.toList());
+        assertEquals(7, upper.size());
+        assertEquals("ABC", upper.get(0));
     }
 
 }
