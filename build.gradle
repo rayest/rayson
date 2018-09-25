@@ -11,8 +11,6 @@ buildscript {
 }
 
 group 'org.rayson'
-version '1.0-SNAPSHOT'
-
 
 apply plugin: 'java'
 apply plugin: 'maven'
