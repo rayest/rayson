@@ -10,8 +10,8 @@ import org.slf4j.LoggerFactory;
  *  Time: 下午10:16
  *  Description:
  **/
-public class ThreadDemo1 implements Runnable{
-    private static Logger logger = LoggerFactory.getLogger(ThreadDemo1.class);
+public class RunnableDemo implements Runnable{
+    private static Logger logger = LoggerFactory.getLogger(RunnableDemo.class);
 
     @Override
     public void run() {
@@ -20,7 +20,7 @@ public class ThreadDemo1 implements Runnable{
 
     public static void main(String[] args) {
         logger.info("新建线程并启动");
-        Thread thread = new Thread(new ThreadDemo1());
+        Thread thread = new Thread(new RunnableDemo());
         thread.start();
     }
 
