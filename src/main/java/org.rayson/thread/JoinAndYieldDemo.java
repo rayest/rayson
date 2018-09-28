@@ -20,7 +20,7 @@ public class JoinAndYieldDemo {
     public static void main(String[] args) throws InterruptedException {
         T t = new T();
         t.start();
-        t.join();
+        t.join(); // main 线程等待 t 线程执行结束再继续执行
         System.out.println(i);
     }
 }
