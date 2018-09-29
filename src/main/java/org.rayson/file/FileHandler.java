@@ -40,7 +40,7 @@ public class FileHandler {
         try {
             latch.await();
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         }
         logger.info("latch: {}", latch.getCount());
         logger.info("子线程处理完毕...");

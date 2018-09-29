@@ -1,5 +1,9 @@
 package org.rayson.thread;
 
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /***
  *  Created with IntelliJ IDEA.
  *  User:  lirui
@@ -8,6 +12,8 @@ package org.rayson.thread;
  *  Description:
  **/
 public class WaitAndNotifyDemo {
+
+    private static Logger logger = LoggerFactory.getLogger(WaitAndNotifyDemo.class);
     final static Object object = new Object();
 
     public static class T1 extends Thread {
@@ -18,7 +24,7 @@ public class WaitAndNotifyDemo {
                     System.out.println(System.currentTimeMillis() + ": T-1 wait for object");
                     object.wait();
                 } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    logger.error(e.getMessage());
                 }
             }
             System.out.println(System.currentTimeMillis() + ": T-1 end!");
@@ -35,7 +41,7 @@ public class WaitAndNotifyDemo {
                 try {
                     Thread.sleep(2000);
                 } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    logger.error(e.getMessage());
                 }
             }
             System.out.println(System.currentTimeMillis() + ": T-2 end!");

@@ -1,5 +1,8 @@
 package org.rayson.thread;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /***
  *  Created with IntelliJ IDEA.
  *  User:  lirui
@@ -9,6 +12,8 @@ package org.rayson.thread;
  **/
 public class DaemonDemo implements Runnable {
 
+    private Logger logger = LoggerFactory.getLogger(DaemonDemo.class);
+
     @Override
     public void run() {
         while (true) {
@@ -16,7 +21,7 @@ public class DaemonDemo implements Runnable {
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                logger.error(e.getMessage());
             }
         }
     }

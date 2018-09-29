@@ -8,7 +8,7 @@ package org.rayson.thread;
  *  Description:
  **/
 public class JoinAndYieldDemo {
-    public volatile static int i = 0;
+    private volatile static int i = 0;
 
     public static class T extends Thread {
         @Override

@@ -53,13 +53,13 @@ public class WriterTask implements Runnable {
                 latch.countDown();
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         } finally {
             try {
                 bufferedWriter.close();
                 bufferedReader.close();
             } catch (IOException e) {
-                e.printStackTrace();
+                logger.error(e.getMessage());
             }
         }
     }

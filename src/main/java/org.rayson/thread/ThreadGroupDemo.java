@@ -23,7 +23,7 @@ public class ThreadGroupDemo implements Runnable {
             try {
                 Thread.sleep(2000);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                logger.error(e.getMessage());
             }
         }
     }
