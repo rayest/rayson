@@ -9,7 +9,8 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
  *  User:  lirui
  *  Date:  2018-10-01
  *  Time: 下午1:40
- *  Description:
+ *  Description: 读写锁。当读操作次数远大于写操作时，读写锁的性能较好
+ *  当同时有读操作和写操作时，二者互斥，需要加锁等待，以保证数据一致性
  **/
 public class ReadWriteLockDemo {
 
@@ -18,7 +19,7 @@ public class ReadWriteLockDemo {
     private static Lock writeLock = readWriteLock.writeLock();
     private int value;
 
-    public Object handleRead(Lock lock) throws InterruptedException {
+    private Object handleRead(Lock lock) throws InterruptedException {
         try {
             lock.lock();
             Thread.sleep(1000); // 模拟读操作
@@ -28,7 +29,7 @@ public class ReadWriteLockDemo {
         }
     }
 
-    public void handleWrite(Lock lock, int index) throws InterruptedException {
+    private void handleWrite(Lock lock, int index) throws InterruptedException {
         try {
             lock.lock();
             Thread.sleep(1000); // 模拟写操作
