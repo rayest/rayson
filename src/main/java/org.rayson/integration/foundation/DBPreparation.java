@@ -1,4 +1,4 @@
-package org.rayson.integration;
+package org.rayson.integration.foundation;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.jdbc.core.JdbcTemplate;

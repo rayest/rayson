@@ -1,4 +1,4 @@
-package org.rayson.integration;
+package org.rayson.integration.foundation;
 
 import com.alibaba.druid.support.http.WebStatFilter;
 import org.apache.ibatis.session.SqlSessionFactory;

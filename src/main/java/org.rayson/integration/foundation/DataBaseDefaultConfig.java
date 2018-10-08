@@ -1,4 +1,4 @@
-package org.rayson.integration;
+package org.rayson.integration.foundation;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Value;

@@ -1,4 +1,4 @@
-package org.rayson.integration;
+package org.rayson.integration.foundation;
 
 import org.apache.ibatis.executor.Executor;
 import org.apache.ibatis.mapping.MappedStatement;

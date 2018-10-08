@@ -1,4 +1,4 @@
-package org.rayson.integration;
+package org.rayson.integration.foundation;
 
 import com.fasterxml.uuid.EthernetAddress;
 import com.fasterxml.uuid.Generators;
