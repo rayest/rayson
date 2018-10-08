@@ -11,3 +11,8 @@
 * `sonar start/status/stop/restart`
 * `./gradlew sonarqube`
 * 访问`http://localhost:9000`并登录 `admin/admin`
+## Jenkins
+* 用户：ray
+* 用户全称：rayest
+* 密码：jenkins2018
+* email：rayestonal@gmail.com
