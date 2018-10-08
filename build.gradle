@@ -62,5 +62,6 @@ dependencies {
     compile 'com.alibaba:druid:1.0.9'
     compile 'org.hsqldb:hsqldb:2.3.3'
     compile 'org.liquibase:liquibase-core:3.4.2'
+    compile "org.springframework.boot:spring-boot-starter-aop:${springBootVersion}"
 }
 
