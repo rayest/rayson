@@ -1,0 +1,27 @@
+druid:
+    enabled: false
+jdbc:
+    driver: org.hsqldb.jdbcDriver
+    password: ''
+    url: jdbc:hsqldb:mem:testdb
+    username: ''
+
+performanceMonitor:
+    enabled: false
+redis:
+    enabled: false
+    scheduled:
+        flush:
+            cron: 0 2 * * * *
+server:
+    port: 9120
+    servlet:
+      path: /rayson-service
+
+spring:
+    redis:
+        host: localhost
+        password: KJmLRT9.Q
+
+    liquibase:
+      change-log: classpath:/scripts/db/changelog/db.changelog-master.xml

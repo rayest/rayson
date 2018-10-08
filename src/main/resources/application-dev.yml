@@ -1,11 +1,6 @@
 server:
   port: 8888
 spring:
-  datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/rayson?useSSL=false
-    username: root
-    password: 199011081108
   redis:
     database: 0
     host: 127.0.0.1
@@ -17,3 +12,8 @@ spring:
     password: guest
     username: guest
 
+jdbc:
+    driver: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/rayson?useSSL=false
+    username: root
+    password: 199011081108
