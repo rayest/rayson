@@ -1,4 +1,5 @@
 # rayson
+
 ## Docker
 > run `docker build -t rayson:v1.0 .`
 
@@ -11,8 +12,12 @@
 * `sonar start/status/stop/restart`
 * `./gradlew sonarqube`
 * 访问`http://localhost:9000`并登录 `admin/admin`
+
 ## Jenkins
 * 用户：ray
 * 用户全称：rayest
 * 密码：jenkins2018
 * email：rayestonal@gmail.com
+
+## Git
+* 倘若在添加了 ignore 文件后，git 版本库中仍有 idea 相关文件，需要去除 idea 缓存 `git rm -r --cached .idea`
