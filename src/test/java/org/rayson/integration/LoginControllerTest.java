@@ -15,9 +15,9 @@ public class LoginControllerTest extends TestBase {
 
     @Test
     public void test() {
-        jdbcTemplate.execute("INSERT INTO  kb_user_registration (id,email,user_name,password,salt) " +
-                "VALUES ('fooUserId','someone@gmail.com','someone','148412d9df986f739038ad22c77459f2','fooId')");
+        jdbcTemplate.execute("INSERT INTO  rayson_user (id, username, password) " +
+                "VALUES (1, 'someone', '123456')");
         System.out.println("heheh");
-        assertEquals("fooUserId", jdbcTemplate.queryForObject("SELECT id FROM kb_user_registration where user_name='someone'", String.class));
+        assertEquals("someone", jdbcTemplate.queryForObject("SELECT username FROM rayson_user where id = 1", String.class));
     }
 }

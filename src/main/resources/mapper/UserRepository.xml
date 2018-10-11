@@ -5,9 +5,14 @@
     <resultMap id="user" type="org.rayson.user.User">
         <id column="id" jdbcType="INTEGER" property="id"/>
         <result column="username" jdbcType="VARCHAR" property="username"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
     </resultMap>
 
     <select id="getById" resultMap="user">
+        select * from rayson_user where id = #{id}
+    </select>
+
+    <select id="getByUsername" resultMap="user">
         select * from rayson_user where id = #{id}
     </select>
 

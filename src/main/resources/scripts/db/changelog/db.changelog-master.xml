@@ -1120,4 +1120,27 @@
             <append value="engine innodb"/>
         </modifySql>
     </changeSet>
+
+    <changeSet id="62" author="rayest" runOnChange="true">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="rayson_user"/>
+            </not>
+        </preConditions>
+        <createTable tableName="rayson_user" remarks="用户基础信息">
+            <column name="id" type="INTEGER">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="username" type="VARCHAR(50)" remarks="用户名">
+                <constraints nullable="false"/>
+            </column>
+            <column name="password" type="VARCHAR(50)" remarks="密码">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <modifySql dbms="mysql">
+            <regExpReplace replace="CURRENT_TIMESTAMP" with="CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"/>
+            <append value="engine innodb"/>
+        </modifySql>
+    </changeSet>
 </databaseChangeLog>
