@@ -9,7 +9,7 @@ import java.util.Arrays;
  *  Time: 下午4:43
  *  Description:
  **/
-public class DirectionAquirement {
+public class DirectionAcquirement {
 
     public String getMessage(String code){
         return Arrays.stream(Direction.values())

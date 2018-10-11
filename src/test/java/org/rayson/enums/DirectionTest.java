@@ -15,8 +15,8 @@ public class DirectionTest {
 
     @Test
     public void test() {
-        DirectionAquirement directionAquirement = new DirectionAquirement();
-        String message = directionAquirement.getMessage("1");
+        DirectionAcquirement directionAcquirement = new DirectionAcquirement();
+        String message = directionAcquirement.getMessage("1");
         assertEquals("东", message);
     }
 }

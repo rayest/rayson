@@ -25,3 +25,10 @@ spring:
 
     liquibase:
       change-log: classpath:/scripts/db/changelog/db.changelog-master.xml
+
+ftp:
+  rayest:
+    hostname: 106.14.39.197
+    port: 22
+    username: lee
+    password: 123456
