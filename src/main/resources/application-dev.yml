@@ -11,9 +11,10 @@ spring:
     port: 5672
     password: guest
     username: guest
-
-jdbc:
-    driver: com.mysql.jdbc.Driver
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://127.0.0.1:3306/rayson?useSSL=false
     username: root
     password: 199011081108
+  liquibase:
+    change-log: classpath:/scripts/db/changelog/db.changelog-master.xml

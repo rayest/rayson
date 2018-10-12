@@ -1,10 +1,5 @@
 druid:
     enabled: false
-jdbc:
-    driver: org.hsqldb.jdbcDriver
-    password: ''
-    url: jdbc:hsqldb:mem:testdb
-    username: ''
 
 performanceMonitor:
     enabled: false
@@ -25,6 +20,11 @@ spring:
 
     liquibase:
       change-log: classpath:/scripts/db/changelog/db.changelog-master.xml
+    datasource:
+      password: ''
+      driver-class-name: org.hsqldb.jdbcDriver
+      url: jdbc:hsqldb:mem:testdb
+      username: ''
 
 ftp:
   rayest:

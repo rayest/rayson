@@ -55,7 +55,7 @@ public class TestBase {
         requestSpecification = new RequestSpecBuilder()
                 .addHeader("identification", "no")
                 .addHeader("authentication", "no")
-                .setBasePath("/rayson-service")
+                .setBasePath("/org.rayson-service")
                 .setPort(9120)
                 .build();
         RestAssured.requestSpecification = requestSpecification;
@@ -67,7 +67,7 @@ public class TestBase {
 
     @After
     public void resetDB() {
-        jdbcTemplate.execute("TRUNCATE TABLE kb_board");
+
         jdbcTemplate.execute("TRUNCATE TABLE kb_stage");
         jdbcTemplate.execute("TRUNCATE TABLE kb_card");
         jdbcTemplate.execute("TRUNCATE TABLE kb_project");

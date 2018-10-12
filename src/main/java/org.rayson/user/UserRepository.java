@@ -1,5 +1,7 @@
 package org.rayson.user;
 
+import org.springframework.stereotype.Repository;
+
 /***
  *  Created with IntelliJ IDEA.
  *  User:  lirui
@@ -7,6 +9,7 @@ package org.rayson.user;
  *  Time: 下午6:19
  *  Description:
  **/
+@Repository
 public interface UserRepository {
     User getById(Integer id);
 

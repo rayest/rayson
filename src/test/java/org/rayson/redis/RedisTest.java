@@ -1,6 +1,7 @@
 package org.rayson.redis;
 
 import org.junit.Test;
+import org.rayson.redis.RedisDemo;
 import org.rayson.BaseTest;
 
 import javax.annotation.Resource;

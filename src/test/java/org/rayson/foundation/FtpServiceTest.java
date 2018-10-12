@@ -1,6 +1,8 @@
 package org.rayson.foundation;
 
 import org.junit.Test;
+import org.rayson.foundation.FtpProperty;
+import org.rayson.foundation.FtpService;
 import org.rayson.integration.TestBase;
 
 import javax.annotation.Resource;

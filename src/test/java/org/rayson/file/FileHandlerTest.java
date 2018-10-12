@@ -1,6 +1,7 @@
 package org.rayson.file;
 
 import org.junit.Test;
+import org.rayson.file.FileHandler;
 
 /***
  *  Created with IntelliJ IDEA.

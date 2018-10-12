@@ -1,6 +1,7 @@
 package org.rayson.tools;
 
 import org.junit.Test;
+import org.rayson.tools.LombokDemo;
 
 import static org.junit.Assert.assertEquals;
 

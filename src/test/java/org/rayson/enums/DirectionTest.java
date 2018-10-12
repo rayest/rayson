@@ -1,6 +1,7 @@
 package org.rayson.enums;
 
 import org.junit.Test;
+import org.rayson.enums.DirectionAcquirement;
 
 import static org.junit.Assert.assertEquals;
 
