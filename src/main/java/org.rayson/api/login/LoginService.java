@@ -24,7 +24,7 @@ public class LoginService {
 
         User user = userRepository.getByUsername(username);
         if (null == user) {
-            throw new BusinessException("用户名不存在");
+            throw new BusinessException("用户不存在");
         }
 
         if (!user.getPassword().equals(password)) {

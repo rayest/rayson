@@ -46,4 +46,20 @@ public class LoginControllerTest extends TestBase{
                 .body("code", equalTo(400))
                 .body("message", equalTo("密码错误"));
     }
+
+    @Scenario("用户不存在")
+    @Test
+    public void login_shouldLoginFailedIfUsernameIsNotExisted() {
+        jdbcTemplate.execute("insert into rayson_user (id, username, password) values (1, 'someone', '123456');");
+        given().param("username", "identity")
+                .param("password", "123456")
+                .contentType(ContentType.JSON)
+                .when()
+                .get("/login")
+                .then()
+                .statusCode(400)
+                .body("code", equalTo(400))
+                .body("message", equalTo("用户不存在"));
+
+    }
 }
