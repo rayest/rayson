@@ -24,11 +24,11 @@ public class LoginService {
 
         User user = userRepository.getByUsername(username);
         if (null == user) {
-            throw new BusinessException("用户不存在");
+            throw new BusinessException(LoginCodes.USER_IS_NOT_EXISTED);
         }
 
         if (!user.getPassword().equals(password)) {
-            throw new BusinessException("密码错误");
+            throw new BusinessException(LoginCodes.USER_OR_PASSWORD_INCORRECT);
         }
         Identification identification = new Identification();
         identification.setToken("token");

@@ -2,6 +2,7 @@ package org.rayson.api;
 
 import com.jayway.restassured.http.ContentType;
 import org.junit.Test;
+import org.rayson.api.login.LoginCodes;
 import org.rayson.foundation.annotations.Scenario;
 
 import static com.jayway.restassured.RestAssured.given;
@@ -43,8 +44,8 @@ public class LoginControllerTest extends TestBase{
                 .get("/login")
                 .then()
                 .statusCode(400)
-                .body("code", equalTo(400))
-                .body("message", equalTo("密码错误"));
+                .body("code", equalTo(LoginCodes.USER_OR_PASSWORD_INCORRECT.code()))
+                .body("message", equalTo(LoginCodes.USER_OR_PASSWORD_INCORRECT.message()));
     }
 
     @Scenario("用户不存在")
@@ -58,8 +59,8 @@ public class LoginControllerTest extends TestBase{
                 .get("/login")
                 .then()
                 .statusCode(400)
-                .body("code", equalTo(400))
-                .body("message", equalTo("用户不存在"));
+                .body("code", equalTo(LoginCodes.USER_IS_NOT_EXISTED.code()))
+                .body("message", equalTo(LoginCodes.USER_IS_NOT_EXISTED.message()));
 
     }
 }
