@@ -11,8 +11,8 @@ import org.rayson.integration.foundation.DBInterceptor;
 import org.rayson.integration.foundation.DBPreparation;
 import org.rayson.integration.foundation.SequenceNumber;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -28,13 +28,11 @@ import static org.mockito.Mockito.when;
  */
 @ActiveProfiles("local-test")
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class TestBase {
-    @Value("${server.port}")
-    protected int port;
 
-    @Value("${server.servlet.path}")
-    protected String contextPath;
+    @LocalServerPort
+    protected int port;
 
     protected String userName = "someone";
 
@@ -55,8 +53,7 @@ public class TestBase {
         requestSpecification = new RequestSpecBuilder()
                 .addHeader("identification", "no")
                 .addHeader("authentication", "no")
-                .setBasePath("/org.rayson-service")
-                .setPort(9120)
+                .setPort(port)
                 .build();
         RestAssured.requestSpecification = requestSpecification;
         when(sequenceNumber.generate()).thenReturn("fooId");

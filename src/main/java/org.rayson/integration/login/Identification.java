@@ -10,7 +10,7 @@ import lombok.Data;
  *  Description:
  **/
 @Data
-public class Authentication {
+public class Identification {
     private String token;
     private String userId;
 }

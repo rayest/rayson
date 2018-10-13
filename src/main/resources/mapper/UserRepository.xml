@@ -13,7 +13,7 @@
     </select>
 
     <select id="getByUsername" resultMap="user">
-        select * from rayson_user where id = #{id}
+        select * from rayson_user where username = #{username}
     </select>
 
 </mapper>

@@ -1,8 +1,10 @@
 package org.rayson.integration;
 
+import com.jayway.restassured.http.ContentType;
 import org.junit.Test;
 
-import static junit.framework.Assert.assertEquals;
+import static com.jayway.restassured.RestAssured.given;
+import static org.hamcrest.CoreMatchers.equalTo;
 
 /***
  *  Created with IntelliJ IDEA.
@@ -11,13 +13,20 @@ import static junit.framework.Assert.assertEquals;
  *  Time: 下午4:49
  *  Description:
  **/
-public class LoginControllerTest extends TestBase {
+
+public class LoginControllerTest extends TestBase{
 
     @Test
-    public void test() {
-        jdbcTemplate.execute("INSERT INTO  rayson_user (id, username, password) " +
-                "VALUES (1, 'someone', '123456')");
-        System.out.println("heheh");
-        assertEquals("someone", jdbcTemplate.queryForObject("SELECT username FROM rayson_user where id = 1", String.class));
+    public void login_loginSuccessfully() {
+        jdbcTemplate.execute("INSERT INTO  rayson_user (id, username, password) " +"VALUES (1, 'someone', '123456')");
+        given().param("username", "someone")
+                .param("password", "123456")
+                .contentType(ContentType.JSON)
+                .when()
+                .get("/login")
+                .then()
+                .statusCode(200)
+                .body("token", equalTo("token"))
+                .body("userId", equalTo("userId"));
     }
 }

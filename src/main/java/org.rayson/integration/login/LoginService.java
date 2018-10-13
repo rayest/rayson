@@ -20,17 +20,19 @@ public class LoginService {
     @Resource
     private UserRepository userRepository;
 
-    public Authentication authenticate(LoginDTO loginDTO) {
-        String username = loginDTO.getUsername();
+    public Identification authenticate(String username, String password) {
+
         User user = userRepository.getByUsername(username);
         if (null == user) {
             throw new BusinessException("用户名不存在");
         }
-        String password = loginDTO.getPassword();
-        if (user.getPassword().equals(password)) {
+
+        if (!user.getPassword().equals(password)) {
             throw new BusinessException("密码错误");
         }
-
-        return null;
+        Identification identification = new Identification();
+        identification.setToken("token");
+        identification.setUserId("userId");
+        return identification;
     }
 }

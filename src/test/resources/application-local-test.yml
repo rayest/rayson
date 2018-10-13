@@ -1,3 +1,24 @@
+server:
+  port: 8888
+spring:
+  redis:
+    database: 0
+    host: 127.0.0.1
+    port: 6379
+    password: redis123
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    password: guest
+    username: guest
+  liquibase:
+    change-log: classpath:/scripts/db/changelog/db.changelog-master.xml
+  datasource:
+    password: ''
+    driver-class-name: org.hsqldb.jdbcDriver
+    url: jdbc:hsqldb:mem:testdb
+    username: ''
+
 druid:
     enabled: false
 
@@ -8,23 +29,7 @@ redis:
     scheduled:
         flush:
             cron: 0 2 * * * *
-server:
-    port: 9120
-    servlet:
-      path: /rayson-service
 
-spring:
-    redis:
-        host: localhost
-        password: KJmLRT9.Q
-
-    liquibase:
-      change-log: classpath:/scripts/db/changelog/db.changelog-master.xml
-    datasource:
-      password: ''
-      driver-class-name: org.hsqldb.jdbcDriver
-      url: jdbc:hsqldb:mem:testdb
-      username: ''
 
 ftp:
   rayest:

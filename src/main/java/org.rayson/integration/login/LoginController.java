@@ -2,7 +2,7 @@ package org.rayson.integration.login;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
@@ -21,8 +21,8 @@ public class LoginController {
     private LoginService loginService;
 
     @GetMapping("/login")
-    public ResponseEntity login(@RequestBody LoginDTO loginDTO){
-        Authentication authentication = loginService.authenticate(loginDTO);
-        return ResponseEntity.ok(authentication);
+    public ResponseEntity login(@RequestParam("username") String username, @RequestParam("password") String password){
+        Identification identification = loginService.authenticate(username, password);
+        return ResponseEntity.ok(identification);
     }
 }
