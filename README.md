@@ -21,3 +21,7 @@
 
 ## Git
 * 倘若在添加了 ignore 文件后，git 版本库中仍有 idea 相关文件，需要去除 idea 缓存 `git rm -r --cached .idea`
+
+## API 接口测试
+* 配置 HSQL 数据库连接参数
+* 配置 liquibase 数据库操作
