@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="org.rayson.rabbit.ProductRepository">
+<mapper namespace="org.rayson.api.rabbit.ProductRepository">
 
-    <resultMap id="product" type="org.rayson.rabbit.Product">
+    <resultMap id="product" type="org.rayson.api.rabbit.Product">
     </resultMap>
 
-    <select id="findById" resultType="org.rayson.rabbit.Product">
+    <select id="findById" resultType="org.rayson.api.rabbit.Product">
         select * from rayson_product where id = #{id}
     </select>
 
