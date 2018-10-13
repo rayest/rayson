@@ -25,3 +25,18 @@
 ## API 接口测试
 * 配置 HSQL 数据库连接参数
 * 配置 liquibase 数据库操作
+
+## 数据库
+* 若启动时 liquibase 遇到 `Could not acquire change log lock.`，可以尝试查询和更改如下操作
+
+``` 
+   UPDATE DATABASECHANGELOGLOCK
+   SET    DATABASECHANGELOGLOCK.LOCKED = 0,
+          DATABASECHANGELOGLOCK.LOCKGRANTED = NULL,
+          DATABASECHANGELOGLOCK.LOCKEDBY = NULL
+   WHERE  ID=1;
+```
+```
+    SELECT * FROM DATABASECHANGELOGLOCK;
+    SELECT * FROM DATABASECHANGELOG;
+```
