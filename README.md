@@ -22,9 +22,11 @@
 ## Git
 * 倘若在添加了 ignore 文件后，git 版本库中仍有 idea 相关文件，需要去除 idea 缓存 `git rm -r --cached .idea`
 
-## API 接口测试
+## Rest Assured 进行 API 接口测试
 * 配置 HSQL 数据库连接参数
 * 配置 liquibase 数据库操作
+* Rest Assured 文档：`https://github.com/rest-assured/rest-assured/wiki/Usage`
+
 
 ## 数据库
 * 若启动时 liquibase 遇到 `Could not acquire change log lock.`，可以尝试查询和更改如下操作
