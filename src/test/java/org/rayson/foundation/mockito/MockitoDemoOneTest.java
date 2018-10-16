@@ -18,7 +18,7 @@ import static org.mockito.Mockito.when;
  *  Time: 下午6:15
  *  Description:
  **/
-public class MockitoTest {
+public class MockitoDemoOneTest {
 
     @Scenario("一个对象的具体行为，通过 mock 实现")
     @Test
