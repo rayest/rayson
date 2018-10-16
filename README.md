@@ -26,6 +26,7 @@
 * 配置 HSQL 数据库连接参数
 * 配置 liquibase 数据库操作
 * Rest Assured 文档：`https://github.com/rest-assured/rest-assured/wiki/Usage`
+* API 接口测试可以只测试成功的情况，其他需要单元测试
 
 
 ## 数据库
