@@ -34,8 +34,6 @@ public class TestBase {
     @LocalServerPort
     protected int port;
 
-    protected String userName = "someone";
-
     @Autowired
     protected DataSource dataSource;
 
@@ -65,23 +63,6 @@ public class TestBase {
     @After
     public void resetDB() {
 
-        jdbcTemplate.execute("TRUNCATE TABLE kb_stage");
-        jdbcTemplate.execute("TRUNCATE TABLE kb_card");
-        jdbcTemplate.execute("TRUNCATE TABLE kb_project");
-        jdbcTemplate.execute("TRUNCATE TABLE kb_user_profile");
-        jdbcTemplate.execute("TRUNCATE TABLE kb_user_registration");
-        jdbcTemplate.execute("TRUNCATE TABLE kb_card_assignment");
-        jdbcTemplate.execute("TRUNCATE TABLE kb_members");
-        jdbcTemplate.execute("TRUNCATE TABLE kb_password_retrieval");
-        jdbcTemplate.execute("TRUNCATE TABLE kb_password_reset");
-        jdbcTemplate.execute("TRUNCATE TABLE kb_project_member_invitation");
-        jdbcTemplate.execute("TRUNCATE TABLE kb_notification");
-        jdbcTemplate.execute("TRUNCATE TABLE kb_acceptance_criterias");
-        jdbcTemplate.execute("TRUNCATE TABLE kb_comment");
-        jdbcTemplate.execute("TRUNCATE TABLE kb_tag");
-        jdbcTemplate.execute("TRUNCATE TABLE kb_cards_tags");
-        jdbcTemplate.execute("TRUNCATE TABLE kb_activity");
-        jdbcTemplate.execute("TRUNCATE TABLE kb_sprint");
         jdbcTemplate.execute("TRUNCATE TABLE kb_page");
         jdbcTemplate.execute("TRUNCATE TABLE rayson_user");
     }
