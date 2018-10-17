@@ -1,8 +1,8 @@
-package org.rayson.api;
+package org.rayson.api.login;
 
 import com.jayway.restassured.http.ContentType;
 import org.junit.Test;
-import org.rayson.api.login.LoginCodes;
+import org.rayson.api.TestBase;
 import org.rayson.foundation.annotations.Scenario;
 
 import static com.jayway.restassured.RestAssured.given;
@@ -16,7 +16,7 @@ import static org.hamcrest.CoreMatchers.equalTo;
  *  Description:
  **/
 
-public class LoginControllerTest extends TestBase{
+public class LoginControllerTest extends TestBase {
 
     @Scenario("登录成功")
     @Test
