@@ -1,6 +1,8 @@
 package org.rayson.api.login;
 
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -26,11 +28,18 @@ public class LoginServiceTest {
     @Mock
     private UserRepository userRepository;
 
-    @Test(expected = BusinessException.class)
-    public void test_username_is_not_exist() {
+    @Rule
+    public ExpectedException thrown = ExpectedException.none();
+
+    @Test
+    public void throws_BusinessException_for_username_is_not_exist() {
+        thrown.expect(BusinessException.class);
+        thrown.expectMessage(LoginCodes.USER_IS_NOT_EXISTED.message());
+
         String noneExistUsername = "none-exist-username";
         String password = "123456";
         when(userRepository.getByUsername(noneExistUsername)).thenReturn(null);
+
         loginService.authenticate(noneExistUsername, password);
     }
 }
