@@ -11,6 +11,7 @@ import org.rayson.api.foundation.exception.BusinessException;
 import org.rayson.api.user.User;
 import org.rayson.api.user.UserRepository;
 
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.when;
 
 /***
@@ -59,5 +60,20 @@ public class LoginServiceTest {
 
         String incorrectPassword = "incorrectPassword";
         loginService.authenticate(username, incorrectPassword);
+    }
+
+    @Test
+    public void login_successfully() {
+        String username = "someone";
+        String password = "password";
+        User expectedUser = new User();
+        expectedUser.setUsername(username);
+        expectedUser.setPassword(password);
+
+        when(userRepository.getByUsername(username)).thenReturn(expectedUser);
+
+        Identification identification = loginService.authenticate(username, password);
+        assertEquals("token", identification.getToken());
+        assertEquals("userId", identification.getUserId());
     }
 }
