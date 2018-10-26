@@ -14,6 +14,8 @@
 * 访问`http://localhost:9000`并登录 `admin/admin`
 
 ## Jenkins
+> 本地启动：java -jar jenkins.war
+> 登录：http://localhost:8080
 * 用户：ray
 * 用户全称：rayest
 * 密码：jenkins2018
