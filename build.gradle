@@ -58,6 +58,7 @@ dependencies {
     compile "org.hsqldb:hsqldb:2.3.3"
     compile "org.liquibase:liquibase-core:3.4.2"
     testCompile "org.mockito:mockito-core:2.23.0"
+    compile 'io.netty:netty-all:4.1.17.Final'
 
 
 }
