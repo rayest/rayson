@@ -18,6 +18,10 @@ spring:
     password: 199011081108
   liquibase:
     change-log: classpath:/scripts/db/changelog/db.changelog-master.xml
+  data:
+    elasticsearch:
+      cluster-name: rayest
+      cluster-nodes: elasticsearch
 
 nettyServer:
   ioThreadNum:  5
