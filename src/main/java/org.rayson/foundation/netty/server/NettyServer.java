@@ -17,7 +17,7 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.annotation.Resource;
 
-@Component
+//@Component
 public class NettyServer {
 
   private static final Logger logger = LoggerFactory.getLogger(NettyServer.class);

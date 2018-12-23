@@ -23,8 +23,8 @@ import java.util.Arrays;
 import static io.netty.handler.codec.stomp.StompHeaders.HEART_BEAT;
 
 
-@ChannelHandler.Sharable
-@Component
+//@ChannelHandler.Sharable
+//@Component
 public class TcpServerHandler extends ChannelInboundHandlerAdapter {
 
     @Resource
