@@ -1,4 +1,4 @@
-package org.rayson;
+package org.rayson.foundation.jvm;
 
 /***
  *  Created with IntelliJ IDEA.
