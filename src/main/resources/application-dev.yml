@@ -23,6 +23,9 @@ spring:
       cluster-name: rayest
       cluster-nodes: elasticsearch
 
+scheduler:
+  every-five-seconds: */5 * * * * *
+
 nettyServer:
   ioThreadNum:  5
   backlog: 1024

@@ -3,24 +3,19 @@ package org.rayson.foundation.netty.server;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelFutureListener;
-import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.handler.timeout.IdleState;
 import io.netty.handler.timeout.IdleStateEvent;
 import io.netty.util.ReferenceCountUtil;
+import java.util.Arrays;
+import javax.annotation.Resource;
 import org.rayson.foundation.netty.ConvertCodeUtils;
 import org.rayson.foundation.netty.DateUtils;
 import org.rayson.foundation.netty.MessageUtils;
 import org.rayson.foundation.netty.tcp.TcpMessage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Component;
-
-import javax.annotation.Resource;
-import java.util.Arrays;
-
-import static io.netty.handler.codec.stomp.StompHeaders.HEART_BEAT;
 
 
 //@ChannelHandler.Sharable
@@ -38,7 +33,7 @@ public class TcpServerHandler extends ChannelInboundHandlerAdapter {
             IdleStateEvent idleStateEvent = (IdleStateEvent) evt;
             if (idleStateEvent.state() == IdleState.READER_IDLE) {
                 logger.info("已经5秒没有收到信息！");
-                ctx.writeAndFlush(HEART_BEAT).addListener(ChannelFutureListener.CLOSE_ON_FAILURE);
+                ctx.writeAndFlush("心跳").addListener(ChannelFutureListener.CLOSE_ON_FAILURE);
             }
         }
     }
