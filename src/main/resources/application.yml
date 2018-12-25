@@ -11,4 +11,5 @@ logging:
     org:
       hibernate:
         SQL: debug
+    mobi:
       rayson: debug
