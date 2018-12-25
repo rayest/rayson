@@ -24,7 +24,7 @@ spring:
       cluster-nodes: elasticsearch
 
 scheduler:
-  every-five-seconds: */5 * * * * *
+  every-five-seconds: "*/5 * * * * *"
 
 nettyServer:
   ioThreadNum:  5
