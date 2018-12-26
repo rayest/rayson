@@ -1,9 +1,10 @@
 package mobi.rayson.api.login;
 
 import com.jayway.restassured.http.ContentType;
+import mobi.rayson.api.TestBase;
+import mobi.rayson.foundation.annotations.Scenario;
 import org.junit.Test;
-import org.rayson.api.TestBase;
-import org.rayson.foundation.annotations.Scenario;
+
 
 import static com.jayway.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.equalTo;

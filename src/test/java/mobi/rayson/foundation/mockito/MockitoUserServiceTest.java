@@ -1,14 +1,14 @@
 package mobi.rayson.foundation.mockito;
 
+import mobi.rayson.api.user.User;
+import mobi.rayson.api.user.UserRepository;
+import mobi.rayson.api.user.UserService;
+import mobi.rayson.foundation.annotations.Scenario;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
-import org.rayson.api.user.User;
-import org.rayson.api.user.UserRepository;
-import org.rayson.api.user.UserService;
-import org.rayson.foundation.annotations.Scenario;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.when;

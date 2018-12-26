@@ -2,7 +2,6 @@ package mobi.rayson.foundation;
 
 import mobi.rayson.api.TestBase;
 import org.junit.Test;
-import org.rayson.api.TestBase;
 
 import javax.annotation.Resource;
 

@@ -1,7 +1,7 @@
 package mobi.rayson.foundation.redis;
 
+import mobi.rayson.foundation.BaseTest;
 import org.junit.Test;
-import org.rayson.foundation.BaseTest;
 
 import javax.annotation.Resource;
 

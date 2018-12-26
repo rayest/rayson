@@ -1,7 +1,7 @@
 package mobi.rayson.foundation.tools;
 
+import mobi.rayson.foundation.common.LombokDemo;
 import org.junit.Test;
-import org.rayson.foundation.common.LombokDemo;
 
 import static org.junit.Assert.assertEquals;
 

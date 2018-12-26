@@ -1,12 +1,11 @@
 package mobi.rayson.foundation.lambda;
 
-import org.junit.Test;
-import org.rayson.foundation.common.Demo;
-
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
+import mobi.rayson.foundation.common.Demo;
+import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.MatcherAssert.assertThat;

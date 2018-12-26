@@ -1,5 +1,8 @@
 package mobi.rayson.api.login;
 
+import mobi.rayson.api.foundation.exception.BusinessException;
+import mobi.rayson.api.user.User;
+import mobi.rayson.api.user.UserRepository;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -7,9 +10,6 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
-import org.rayson.api.foundation.exception.BusinessException;
-import org.rayson.api.user.User;
-import org.rayson.api.user.UserRepository;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.when;

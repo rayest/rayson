@@ -1,7 +1,7 @@
 package mobi.rayson.foundation.mockito;
 
+import mobi.rayson.foundation.annotations.Scenario;
 import org.junit.Test;
-import org.rayson.foundation.annotations.Scenario;
 
 import java.util.LinkedList;
 

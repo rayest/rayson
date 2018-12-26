@@ -1,8 +1,8 @@
 package mobi.rayson.api.user;
 
 import com.jayway.restassured.http.ContentType;
+import mobi.rayson.api.TestBase;
 import org.junit.Test;
-import org.rayson.api.TestBase;
 
 import static com.jayway.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.equalTo;

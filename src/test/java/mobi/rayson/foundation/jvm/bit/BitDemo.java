@@ -1,7 +1,7 @@
 package mobi.rayson.foundation.jvm.bit;
 
+import mobi.rayson.foundation.annotations.Scenario;
 import org.junit.Test;
-import org.rayson.foundation.annotations.Scenario;
 
 import static org.junit.Assert.assertEquals;
 

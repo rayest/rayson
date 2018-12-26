@@ -17,6 +17,11 @@ spring:
     url: jdbc:hsqldb:mem:testdb
     username: ''
 
+  data:
+      elasticsearch:
+        cluster-name: rayest
+        cluster-nodes: elasticsearch
+
 druid:
     enabled: false
 
@@ -26,7 +31,7 @@ redis:
     enabled: false
     scheduled:
         flush:
-            cron: 0 2 * * * *
+            cron: "0 2 * * * *"
 
 ftp:
   rayest:

@@ -1,11 +1,11 @@
 package mobi.rayson.foundation.mockito;
 
+import mobi.rayson.foundation.annotations.Scenario;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Spy;
 import org.mockito.junit.MockitoJUnitRunner;
-import org.rayson.foundation.annotations.Scenario;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
