@@ -8,6 +8,7 @@ import mobi.rayson.api.foundation.DBPreparation;
 import mobi.rayson.api.foundation.SequenceNumber;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,7 @@ import org.springframework.test.util.ReflectionTestUtils;
 import javax.annotation.Resource;
 import javax.sql.DataSource;
 
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.when;
 
 /**
@@ -65,5 +67,10 @@ public class TestBase {
 
         jdbcTemplate.execute("TRUNCATE TABLE kb_page");
         jdbcTemplate.execute("TRUNCATE TABLE rayson_user");
+    }
+
+    @Test
+    public void test() {
+        assertEquals(1,1);
     }
 }

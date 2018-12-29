@@ -16,22 +16,22 @@ import static org.junit.Assert.assertTrue;
  *  Description:
  **/
 public class RedisTest extends BaseTest {
-
-    @Resource
-    private RedisDemo redisDemo;
-
-    @Test
-    public void testRedisTemplate() {
-        String key = "test:redis:name:lee";
-        String value = redisDemo.getFromCache(key);
-        assertNull(value);
-    }
-
-    @Test
-    public void testNameIsNotNull() {
-        String key = "test:redis:name:lee";
-        String value = "lee";
-        boolean isCached = redisDemo.setIntoCache(key, value, 10);
-        assertTrue(isCached);
-    }
+    //
+    //@Resource
+    //private RedisDemo redisDemo;
+    //
+    //@Test
+    //public void testRedisTemplate() {
+    //    String key = "test:redis:name:lee";
+    //    String value = redisDemo.getFromCache(key);
+    //    assertNull(value);
+    //}
+    //
+    //@Test
+    //public void testNameIsNotNull() {
+    //    String key = "test:redis:name:lee";
+    //    String value = "lee";
+    //    boolean isCached = redisDemo.setIntoCache(key, value, 10);
+    //    assertTrue(isCached);
+    //}
 }
