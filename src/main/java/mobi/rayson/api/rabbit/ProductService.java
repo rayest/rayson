@@ -5,6 +5,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.HashMap;
@@ -25,6 +27,9 @@ public class ProductService {
     @Resource
     private RabbitTemplate rabbitTemplate;
 
+    @Resource
+    private ProductRepository productRepository;
+
     private final Logger logger = LoggerFactory.getLogger(ProductService.class);
 
     public ResponseEntity create(ProductDTO productDTO) {
@@ -33,5 +38,14 @@ public class ProductService {
         logger.info("Sending message to queue...");
         rabbitTemplate.convertAndSend(TEST_RABBIT_USER_QUEUE, map);
         return ResponseEntity.ok().build();
+    }
+
+    @Transactional(propagation = Propagation.NEVER, rollbackFor = Exception.class)
+    public void save(String productNo) throws Exception {
+        Product product = new Product().setProductNo(productNo);
+        productRepository.deduct(product);
+        if (true){
+            throw new Exception("回滚");
+        }
     }
 }

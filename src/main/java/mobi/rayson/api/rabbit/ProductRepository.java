@@ -13,4 +13,6 @@ public interface ProductRepository {
     Optional<Product> findById(Long id);
 
     void save(Product product);
+
+    void deduct(Product product);
 }

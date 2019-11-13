@@ -1,5 +1,5 @@
 server:
-  port: 8888
+  port: 8000
 spring:
   redis:
     database: 0
@@ -19,11 +19,14 @@ spring:
   liquibase:
     change-log: classpath:/scripts/db/changelog/db.changelog-master.xml
 
-scheduler:
-  every-five-seconds: "*/5 * * * * *"
-
 nettyServer:
   ioThreadNum:  5
   backlog: 1024
   port: 9624
   host: 0.0.0.0
+
+## application.properties
+rocketmq:
+    name-server: 127.0.0.1:9876
+    producer:
+      group: my-group

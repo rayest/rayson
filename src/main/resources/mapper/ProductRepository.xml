@@ -13,4 +13,8 @@
         insert into rayson_product (name, price) values (#{name}, #{price})
     </insert>
 
+    <update id="deduct" parameterType="mobi.rayson.api.rabbit.Product">
+        update rayson_product set stock = stock - 1 where product_no = #{productNo}
+    </update>
+
 </mapper>

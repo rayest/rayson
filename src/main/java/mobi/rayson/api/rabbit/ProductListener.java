@@ -19,7 +19,7 @@ import static mobi.rayson.api.rabbit.RabbitMQConfiguration.TEST_RABBIT_USER_QUEU
  *  Description:
  **/
 @Component
-@RabbitListener(queues = TEST_RABBIT_USER_QUEUE)
+//@RabbitListener(queues = TEST_RABBIT_USER_QUEUE)
 public class ProductListener {
 
   @Resource

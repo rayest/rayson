@@ -1,6 +1,7 @@
 package mobi.rayson.api.rabbit;
 
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 /***
  *  Created with IntelliJ IDEA.
@@ -10,10 +11,13 @@ import lombok.Data;
  *  Description:
  **/
 @Data
+@Accessors(chain = true)
 public class Product {
 
-    private Long id;
+    private String id;
     private String name;
     private String price;
-
+    private int stock;
+    private String productNo;
+    private String productName;
 }

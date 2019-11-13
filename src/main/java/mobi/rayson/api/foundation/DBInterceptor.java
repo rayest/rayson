@@ -41,7 +41,7 @@ public class DBInterceptor implements Interceptor {
                 });
             } else {
                 if (ReflectionTestUtils.getField(entityToSave, "id") == null) {
-                    ReflectionTestUtils.setField(entityToSave, "id", sequenceNumber.generate());
+                    ReflectionTestUtils.setField(entityToSave, "id", Integer.getInteger(sequenceNumber.generate()));
                 }
             }
         }

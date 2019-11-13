@@ -16,4 +16,8 @@
         select * from rayson_user where username = #{username}
     </select>
 
+    <insert id="save" parameterType="mobi.rayson.api.user.User">
+        insert into rayson_user (username, password) values (#{username}, #{password})
+    </insert>
+
 </mapper>
